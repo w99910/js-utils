@@ -21,7 +21,7 @@ npm install w99910/js-utils
 ```
 or clone the repository
 ```bash
-git clone 
+git clone https://github.com/w99910/js-utils.git
 ```
 
 
