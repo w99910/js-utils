@@ -4,6 +4,9 @@
 > This library is being developed while I am using this on my work and use with precaution. I recommend you to check source code before you deploy.
 > Perhaps you can find some bugs and I will be happy if you report them to me.
 
+## TODO
+- [ ] UpperCase first charcter in String
+
 ## Table of contents
 - [Introduction](#introduction)
 - [Installation](#installation)
