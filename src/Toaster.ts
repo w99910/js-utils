@@ -58,7 +58,7 @@ export default class Toaster {
             case 'success':
                 icon = success;
                 bgColor = '#57cc99';
-                textColor = '#2a2a2a';
+                textColor = '#333333';
                 break;
             case 'warning':
                 icon = warning;
@@ -68,7 +68,7 @@ export default class Toaster {
             case 'error':
                 icon = error;
                 bgColor = '#e56b6f';
-                textColor = '#1c1c1c';
+                textColor = '#f6f6f6';
                 break;
             default:
                 icon = info;
