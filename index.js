@@ -1,5 +1,3 @@
-import C from "./src/Carbon";
-export const Carbon = C;
 export { default as toHumanReadableFileSize } from "./src/to-human-readable-filesize";
 export { default as Random } from "./src/Random";
 export { default as Toaster } from "./src/Toaster";
