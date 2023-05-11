@@ -59,6 +59,7 @@ export default class Toaster {
         let icon;
         let bgColor;
         let textColor;
+        if (!type) type = 'info';
         switch (type) {
             case 'success':
                 icon = success;
@@ -75,7 +76,7 @@ export default class Toaster {
                 bgColor = '#e56b6f';
                 textColor = '#f6f6f6';
                 break;
-            default:
+            case 'info':
                 icon = info;
                 bgColor = '#4361ee';
                 textColor = '#ffffff';
@@ -104,7 +105,7 @@ export default class Toaster {
                     easing: 'easeOutExpo',
                     opacity: 0,
                     duration: 800,
-                    delay: duration // convert to seconds
+                    delay: duration // in milliseconds
                 });
             }
         });
