@@ -27,25 +27,12 @@ export default class Toaster {
         setStyleIfNotSet('borderRadius', '5px');
         setStyleIfNotSet('padding', '10px');
         setStyleIfNotSet('transform', 'translateX(30%)');
-        setStyleIfNotSet('opactiy', '0');
+        setStyleIfNotSet('opacity', '0');
         setStyleIfNotSet('boxShadow', '0 0 10px rgba(0,0,0,0.2)');
         setStyleIfNotSet('display', 'flex');
         setStyleIfNotSet('alignItems', 'center');
         setStyleIfNotSet('color', 'white');
         setStyleIfNotSet('border', '0.2px solid white');
-        // this.element.style.position = 'fixed';
-        // this.element.style.top = '2vh';
-        // this.element.style.right = '1vw';
-        // this.element.style.zIndex = '9999';
-        // this.element.style.borderRadius = '5px';
-        // this.element.style.padding = '10px';
-        // this.element.style.transform = 'translateX(30%)'
-        // this.element.style.opacity = '0';
-        // this.element.style.boxShadow = '0 0 10px rgba(0,0,0,0.2)';
-        // this.element.style.display = 'flex';
-        // this.element.style.alignItems = 'center'
-        // this.element.style.color = 'white';
-        // this.element.style.border = '0.2px solid white'
     }
 
     protected prepareIconElement() {
