@@ -93,11 +93,11 @@ export default class Toaster {
         }
         instance.messageElement.innerText = message;
         instance.appendRelatedIcon(type);
+        instance.element.style.zIndex = 2147484002;
         anime({
             targets: instance.element,
             translateX: 0,
             opacity: 1,
-            zIndex: 2147484002,
             easing: 'easeOutExpo',
             complete: function (anim) {
                 anime({
@@ -105,9 +105,11 @@ export default class Toaster {
                     translateX: '30%',
                     easing: 'easeOutExpo',
                     opacity: 0,
-                    zIndex: -1,
                     duration: 800,
-                    delay: duration // in milliseconds
+                    delay: duration, // in milliseconds,
+                    complete: function () {
+                        instance.element.style.zIndex = -1;
+                    }
                 });
             }
         });
