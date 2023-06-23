@@ -3,15 +3,52 @@ import anime from 'animejs/lib/anime.es.js';
 
 let instance;
 
-export default class Toaster {
+export default class PopUp {
     protected element: HTMLElement;
-    protected messageElement: HTMLElement;
+    protected backgroundElement: HTMLElement;
+    protected boxElement: HTMLElement;
     protected iconElement: HTMLElement;
 
-    constructor(element: HTMLElement) {
-        this.element = element;
+    constructor() {
+        this.prepareBackgroundElement();
+        this.prepareBoxElement();
         instance = this;
         this.prepareToast();
+    }
+
+    protected prepareBoxElement(): HTMLElement {
+        if (!this.backgroundElement) this.prepareBackgroundElement();
+        this.boxElement = document.createElement('div');
+        let styles = {
+            position: 'relative',
+            padding: '10px',
+        }
+        Object.keys(styles).forEach(key => {
+            this.boxElement.style[key] = styles[key];
+        })
+        this.backgroundElement.appendChild(this.boxElement);
+        return this.boxElement;
+    }
+
+    protected prepareBackgroundElement(): HTMLElement {
+        this.backgroundElement = document.createElement('div');
+        this.backgroundElement.id = 'pop-up';
+        let styles = {
+            position: 'fixed',
+            top: '0',
+            right: '0',
+            width: '100vw',
+            height: '100vh',
+            zIndex: '999999',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+        }
+        Object.keys(styles).forEach(key => {
+            this.backgroundElement.style[key] = styles[key];
+        })
+        document.body.appendChild(this.backgroundElement);
+        return this.backgroundElement;
     }
 
     protected setStylesToParent() {
@@ -43,16 +80,16 @@ export default class Toaster {
         this.element.appendChild(this.iconElement);
     }
 
-    protected prepareMessageElement() {
-        this.messageElement = document.createElement('div');
-        this.messageElement.style.padding = '5px';
-        this.element.appendChild(this.messageElement);
-    }
+    // protected prepareMessageElement() {
+    //     this.messageElement = document.createElement('div');
+    //     this.messageElement.style.padding = '5px';
+    //     this.element.appendChild(this.messageElement);
+    // }
 
     protected prepareToast() {
         this.setStylesToParent();
         this.prepareIconElement();
-        this.prepareMessageElement();
+        // this.prepareMessageElement();
     }
 
     protected appendRelatedIcon(type) {
@@ -97,7 +134,6 @@ export default class Toaster {
             targets: instance.element,
             translateX: 0,
             opacity: 1,
-            zIndex: 2147484002,
             easing: 'easeOutExpo',
             complete: function (anim) {
                 anime({
@@ -105,7 +141,6 @@ export default class Toaster {
                     translateX: '30%',
                     easing: 'easeOutExpo',
                     opacity: 0,
-                    zIndex: -1,
                     duration: 800,
                     delay: duration // in milliseconds
                 });
