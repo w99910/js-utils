@@ -14,6 +14,41 @@ export default class Toaster {
         this.prepareToast();
     }
 
+    protected config = {
+        success: {
+            icon: success,
+            bgColor: '#57cc99',
+            textColor: '#333333'
+        },
+        warning: {
+            icon: warning,
+            bgColor: '#ffd166',
+            textColor: '#1e1e1e'
+        },
+        error: {
+            icon: error,
+            bgColor: '#e56b6f',
+            textColor: '#f6f6f6'
+        },
+        info: {
+            icon: info,
+            bgColor: '#4361ee',
+            textColor: '#ffffff'
+        }
+    };
+
+    public setConfigOfType(type: String, config: Object) {
+        if (!this.config.hasOwnProperty(type as PropertyKey)) {
+            return false;
+        }
+        Object.keys(config).forEach((key) => {
+            if (this.config[type as PropertyKey].hasOwnProperty(key as PropertyKey)) {
+                this.config[type as PropertyKey][key] = config[key];
+            }
+        })
+        return this;
+    }
+
     protected setStylesToParent() {
         const setStyleIfNotSet = (attribute, value) => {
             if (!this.element.style[attribute]) {
@@ -56,35 +91,10 @@ export default class Toaster {
     }
 
     protected appendRelatedIcon(type) {
-        let icon;
-        let bgColor;
-        let textColor;
         if (!type) type = 'info';
-        switch (type) {
-            case 'success':
-                icon = success;
-                bgColor = '#57cc99';
-                textColor = '#333333';
-                break;
-            case 'warning':
-                icon = warning;
-                bgColor = '#ffd166';
-                textColor = '#1e1e1e';
-                break;
-            case 'error':
-                icon = error;
-                bgColor = '#e56b6f';
-                textColor = '#f6f6f6';
-                break;
-            case 'info':
-                icon = info;
-                bgColor = '#4361ee';
-                textColor = '#ffffff';
-                break;
-        }
-        this.element.style.backgroundColor = bgColor;
-        this.element.style.color = textColor;
-        this.iconElement.innerHTML = icon;
+        this.element.style.backgroundColor = this.config[type].bgColor;
+        this.element.style.color = this.config[type].textColor;
+        this.iconElement.innerHTML = this.config[type].icon;
     }
 
     static toast(message, type, duration = 2000) {
