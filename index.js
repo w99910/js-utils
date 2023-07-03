@@ -3,3 +3,5 @@ export { default as toHumanReadableFileSize } from "./src/to-human-readable-file
 export { default as Random } from "./src/Random";
 export { default as Toaster } from "./src/Toaster";
 export { default as String } from "./src/String";
+export { default as Tooltip } from "./src/Tooltip";
+export { default as onClickOutside } from "./src/onClickOutside";

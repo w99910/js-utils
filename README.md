@@ -2,13 +2,8 @@
 
 **Useful And Easy-To-Use Utilities Written In Typescript**
 
-> This library is being developed while I am using this on my work and use with precaution. I recommend you to check
-> source code before you deploy.
-> Perhaps you can find some bugs and I will be happy if you report them to me.
-
-## TODO
-
-- [ ] UpperCase first character in String
+> This library is being developed while I am using this on my work and thus use with precaution. I recommend you to check source code before you deploy.
+Perhaps you can find some bugs and I will be happy if you report them to me.
 
 ## Table of contents
 
@@ -16,6 +11,8 @@
 - [Installation](#installation)
 - [Usage](#Usage)
     - [Toaster](#Toaster)
+    - [Tooltip](#Tooltip)
+    - [OnClickOutside](#OnClickOutside)
     - [Carbon](#Carbon)
     - [Random](#Random)
     - [String](#String)
@@ -87,7 +84,38 @@ Toaster.toast('Hello World!', 'success');
 Toaster.toast('Hello World!', 'success', 5000);
 ```
 
-### Carbon
+### Tooltip
+
+Easy-to-use and Responsive tooltip 
+
+```html
+<button class="tooltip-parent">Click Me</button>
+<div id="tooltip" style="padding:5px; border-radius:5px; background:white; position:fixed;">This is tooltip</div>
+```
+
+```javascript
+import {Tooltip} from 'js-utils';
+// parameter is the element that will be used as parent for tooltip
+const tooltip = new Tooltip(document.querySelector('.tooltip-parent'));
+
+// show tooltip
+tooltip.setTooltip(document.querySelector('#tooltip'));
+```
+
+### OnClickOutside
+
+Listen events for clicks outside of an element.
+
+```javascript
+import {OnClickOutside} from 'js-utils';
+
+const element = document.querySelector('.element');
+
+// listen for clicks outside of element
+OnClickOutside(element, () => {
+    console.log('Clicked outside of element');
+});
+```
 
 ### Random
 
