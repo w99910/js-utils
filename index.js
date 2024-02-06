@@ -5,4 +5,4 @@ export {default as Toaster} from "./src/Toaster";
 export {default as String} from "./src/String";
 export {default as Tooltip} from "./src/Tooltip";
 export {default as onClickOutside} from "./src/OnClickOutside";
-export {default as placeElementRelativeToScreen} from "./src/placeElementRelativeToScreen";
+export {default as adjustElementPositionRelativeToScreen} from "./src/adjustElementPositionRelativeToScreen";

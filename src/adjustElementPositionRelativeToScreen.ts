@@ -1,4 +1,4 @@
-export function placeElementRelativeToScreen(element:HTMLElement, shouldCenter = false) {
+export default function adjustElementPositionRelativeToScreen(element:HTMLElement, shouldCenter:boolean = false) {
     return new Promise((resolve) => {
         // Get bounding rect of element
         let screenWidth = window.innerWidth;
